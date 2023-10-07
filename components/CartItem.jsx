@@ -33,32 +33,32 @@ const CartItem = ({ data }) => {
             <div className="w-full flex flex-col">
                 <div className="flex flex-col md:flex-row justify-between">
                     {/* PRODUCT TITLE */}
-                    <div className="text-lg md:text-2xl font-semibold text-black/[0.8]">
+                    <div className="text-lg md:text-2xl font-semibold text-white/[0.8]">
                         {p.name}
                     </div>
 
                     {/* PRODUCT SUBTITLE */}
-                    <div className="text-sm md:text-md font-medium text-black/[0.5] block md:hidden">
+                    <div className="text-sm md:text-md font-medium text-white/[0.5] block md:hidden">
                         {p.subtitle}
                     </div>
 
                     {/* PRODUCT PRICE */}
-                    <div className="text-sm md:text-md font-bold text-black/[0.5] mt-2">
-                        MRP : &#8377;{p.price}
+                    <div className="text-sm md:text-md font-bold text-white/[0.5] mt-2 basis-1/4 text-right">
+                        {p.price.toLocaleString()} đ
                     </div>
                 </div>
 
                 {/* PRODUCT SUBTITLE */}
-                <div className="text-md font-medium text-black/[0.5] hidden md:block">
+                <div className="text-md font-medium text-white/[0.5] hidden md:block">
                     {p.subtitle}
                 </div>
 
                 <div className="flex items-center justify-between mt-4">
-                    <div className="flex items-center gap-2 md:gap-10 text-black/[0.5] text-sm md:text-md">
+                    <div className="flex items-center gap-2 md:gap-10 bg-black text-white/[0.5] text-sm md:text-md">
                         <div className="flex items-center gap-1">
-                            <div className="font-semibold">Size:</div>
+                            <div className="font-semibold text-white">Size:</div>
                             <select
-                                className="hover:text-black"
+                                className="hover:text-white text-white bg-black"
                                 onChange={(e) =>
                                     updateCartItem(e, "selectedSize")
                                 }
@@ -83,9 +83,9 @@ const CartItem = ({ data }) => {
                         </div>
 
                         <div className="flex items-center gap-1">
-                            <div className="font-semibold">Quantity:</div>
+                            <div className="font-semibold text-white">Quantity:</div>
                             <select
-                                className="hover:text-black"
+                                className="hover:text-white text-white bg-black"
                                 onChange={(e) => updateCartItem(e, "quantity")}
                             >
                                 {Array.from(
@@ -109,7 +109,7 @@ const CartItem = ({ data }) => {
                         onClick={() =>
                             dispatch(removeFromCart({ id: data.id }))
                         }
-                        className="cursor-pointer text-black/[0.5] hover:text-black text-[16px] md:text-[20px]"
+                        className="cursor-pointer text-white/[0.5] hover:text-black text-[16px] md:text-[20px]"
                     />
                 </div>
             </div>

@@ -59,9 +59,8 @@ const Category = ({ category, products, slug }) => {
                             Previous
                         </button>
 
-                        <span className="font-bold">{`${pageIndex} of ${
-                            data && data.meta.pagination.pageCount
-                        }`}</span>
+                        <span className="font-bold">{`${pageIndex} of ${data && data.meta.pagination.pageCount
+                            }`}</span>
 
                         <button
                             className={`rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500`}
@@ -89,7 +88,7 @@ const Category = ({ category, products, slug }) => {
 
 export default Category;
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
     const category = await fetchDataFromApi("/api/categories?populate=*");
     const paths = category?.data?.map((c) => ({
         params: {
@@ -103,8 +102,8 @@ export async function getStaticPaths() {
     };
 }
 
-// `getStaticPaths` requires using `getStaticProps`
-export async function getStaticProps({ params: { slug } }) {
+// `getServerSidePaths` requires using `getStaticProps `
+export async function getServerSideProps({ params: { slug } }) {
     const category = await fetchDataFromApi(
         `/api/categories?filters[slug][$eq]=${slug}`
     );

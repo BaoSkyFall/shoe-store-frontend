@@ -41,7 +41,7 @@ const Cart = () => {
     return (
         <div className="w-full md:py-20">
             <Wrapper>
-                {cartItems.length > 0 && (
+                {cartItems?.length > 0 && (
                     <>
                         {/* HEADING AND PARAGRAPH START */}
                         <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
@@ -70,11 +70,11 @@ const Cart = () => {
 
                                 <div className="p-5 my-5 bg-black/[0.05] rounded-xl">
                                     <div className="flex justify-between">
-                                        <div className="uppercase text-md md:text-lg font-medium text-black">
+                                        <div className="uppercase text-md md:text-lg font-medium text-white">
                                             Subtotal
                                         </div>
-                                        <div className="text-md md:text-lg font-medium text-black">
-                                            &#8377;{subTotal}
+                                        <div className="text-md md:text-lg font-medium text-white">
+                                            {subTotal.toLocaleString()} đ
                                         </div>
                                     </div>
                                     <div className="text-sm md:text-md py-5 border-t mt-5">
@@ -88,7 +88,7 @@ const Cart = () => {
 
                                 {/* BUTTON START */}
                                 <button
-                                    className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
+                                    className="w-full py-4 rounded-full bg-white text-black text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
                                     onClick={handlePayment}
                                 >
                                     Checkout
@@ -103,7 +103,7 @@ const Cart = () => {
                 )}
 
                 {/* This is empty screen */}
-                {cartItems.length < 1 && (
+                {cartItems?.length < 1 && (
                     <div className="flex-[2] flex flex-col items-center pb-[50px] md:-mt-14">
                         <Image
                             src="/empty-cart.jpg"

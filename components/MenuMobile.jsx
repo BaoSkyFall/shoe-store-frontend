@@ -57,7 +57,7 @@ const MenuMobile = ({
                                                         <li className="py-4 px-8 border-t flex justify-between">
                                                             {c.name}
                                                             <span className="opacity-50 text-sm">
-                                                                {`(${c.products.data.length})`}
+                                                                {`(${c.products.data?.length})`}
                                                             </span>
                                                         </li>
                                                     </Link>
