@@ -15,7 +15,18 @@ module.exports = {
             roboto: "Roboto, sans-serif"
 
         },
-        extend: {},
+        extend: {
+            keyframes: {
+                flickerAnimation: {
+                    '0%': { opacity: 1 },
+                    '50%': { opacity: 0 },
+                    '100%': { opacity: 1 }
+                }
+            },
+            animation: {
+                'fade-infinite': 'flickerAnimation 1s infinite',
+            }
+        }
     },
     plugins: [],
 };

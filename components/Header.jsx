@@ -56,7 +56,10 @@ const Header = () => {
         >
             <Wrapper className="h-[60px] flex justify-between items-center">
                 <Link href="/">
-                    <img src="/logo.svg" className="w-[80px] md:w-[100px]" />
+                    <div className="flex items-center">
+                        <img src="/logo.svg" className="w-[80px] md:w-[100px]" /> <span className="tracking-[.2em] text-white text-3xl font-semibold">Aphorism</span>
+
+                    </div>
                 </Link>
 
                 <Menu

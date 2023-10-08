@@ -76,9 +76,10 @@ const Category = ({ category, products, slug }) => {
                 )}
                 {/* PAGINATION BUTTONS END */}
                 {isLoading && (
-                    <div className="absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
-                        <img src="/logo.svg" width={150} />
-                        <span className="text-2xl font-medium">Loading...</span>
+                    <div className=" absolute top-10 left-0 w-full h-full bg-black/[0.5] text-white flex flex-col gap-5 justify-center items-center">
+
+                        <img className="animate-fade-infinite" src="/logo.svg" width={150} />
+                        <span className="animate-fade-infinite text-2xl font-medium">Loading...</span>
                     </div>
                 )}
             </Wrapper>
@@ -107,14 +108,14 @@ export async function getServerSideProps({ params: { slug } }) {
     const category = await fetchDataFromApi(
         `/api/categories?filters[slug][$eq]=${slug}`
     );
-    const products = await fetchDataFromApi(
-        `/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`
-    );
+    // const products = await fetchDataFromApi(
+    //     `/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`
+    // );
 
     return {
         props: {
             category,
-            products,
+            products: [],
             slug,
         },
     };
